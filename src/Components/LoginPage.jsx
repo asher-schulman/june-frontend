@@ -6,7 +6,7 @@ function LoginPage() {
     
     const googleLogin = () => {
         // backendurl/auth/google
-        window.open("http://localhost:5000/auth/google", "_self");
+        window.open("https://june-backend.herokuapp.com/auth/google", "_self");
     }
     
     return (
