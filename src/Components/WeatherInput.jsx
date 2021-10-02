@@ -4,7 +4,7 @@ import { Google } from 'react-bootstrap-icons'
 
 require("dotenv").config();
 // const apiKey = process.env.REACT_APP_API_KEY
-const backendURL = process.env.REACT_APP_BACKEND_URL
+// const BACKEND_URL = 'https://june-backend.herokuapp.com'
             
 function WeatherInput() {
 
@@ -12,7 +12,7 @@ function WeatherInput() {
     const [weather, setWeather] = useState({});
 
     const googleLogin = () => {
-        window.open(`${backendURL}/auth/google`, '_self');
+        window.open(`https://june-backend.herokuapp.com/auth/google`, '_self');
     }
 
     const searchOnEnter = evt => {
@@ -21,7 +21,7 @@ function WeatherInput() {
             evt.preventDefault()
             console.log(`QUERY: ${query}`)
             // ideally, query is a 5-digit US zipcode
-        fetch(`${backendURL}/api/${query}`)
+        fetch(`https://june-backend.herokuapp.com/api/${query}`)
             .then(res => res.json())
             .then(result => {
             setWeather(result);
@@ -32,7 +32,7 @@ function WeatherInput() {
     }
 
     const search = () => {
-        fetch(`${backendURL}`)
+        fetch(`https://june-backend.herokuapp.com/api/${query}`)
         .then(res => res.json())
         .then(result => {
             setWeather(result);
