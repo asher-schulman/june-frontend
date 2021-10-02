@@ -3,7 +3,8 @@ import { Form, Button, Container, Card, Row, Col } from 'react-bootstrap'
 import { Google } from 'react-bootstrap-icons'
 
 require("dotenv").config();
-const apiKey = process.env.REACT_APP_API_KEY
+// const apiKey = process.env.REACT_APP_API_KEY
+const backendURL = process.env.REACT_APP_BACKEND_URL
             
 function WeatherInput() {
 
@@ -11,7 +12,7 @@ function WeatherInput() {
     const [weather, setWeather] = useState({});
 
     const googleLogin = () => {
-        window.open("http://localhost:5000/auth/google", "_self");
+        window.open(`${backendURL}/auth/google`, '_self');
     }
 
     const searchOnEnter = evt => {
@@ -20,7 +21,7 @@ function WeatherInput() {
             evt.preventDefault()
             console.log(`QUERY: ${query}`)
             // ideally, query is a 5-digit US zipcode
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query},us&units=imperial&appid=${apiKey}`)
+        fetch(`${backendURL}/api/${query}`)
             .then(res => res.json())
             .then(result => {
             setWeather(result);
@@ -31,7 +32,7 @@ function WeatherInput() {
     }
 
     const search = () => {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query},us&units=imperial&appid=${apiKey}`)
+        fetch(`${backendURL}`)
         .then(res => res.json())
         .then(result => {
             setWeather(result);
