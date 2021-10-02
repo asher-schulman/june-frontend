@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Switch, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap'
 import HomePage from './Components/HomePage'
 import LoginPage from './Components/LoginPage'
@@ -11,11 +11,11 @@ function App() {
     <div className='app'>
       <Navigation />
       <Container>
-        <Router>
+        <Switch>
           <Route path='/login' component={LoginPage} />
           <Route path='/about' component={AboutPage} />
           <Route exact path='/' component={HomePage} />
-        </Router>
+        </Switch>
       </Container>
       <div className="weatherwidget"></div>
       <Footer />
