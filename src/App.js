@@ -12,9 +12,9 @@ function App() {
       <Navigation />
       <Container>
         <Switch>
-          <Route path='/login' component={LoginPage} />
-          <Route path='/about' component={AboutPage} />
-          <Route exact path='/' component={HomePage} />
+          <Route path='/june-frontend/login' component={LoginPage} />
+          <Route path='/june-frontend/about' component={AboutPage} />
+          <Route exact path='/june-frontend' component={HomePage} />
         </Switch>
       </Container>
       <div className="weatherwidget"></div>
